@@ -17,11 +17,12 @@ __syscall:
 .type __syscall,%function
 __syscall:
   la  $t0, 1f
-
+  ld.d $t1, $t0, 0
   add.d $t0, $t0, $t1
-
+  ld.d $t0, $t0, 0
+  
   jirl  $zero, $t0, 0
 
 
 .hidden __sysinfo
-1:  .word __sysinfo-1b
+1:  .dword __sysinfo-1b
